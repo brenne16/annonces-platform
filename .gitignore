@@ -1,4 +1,36 @@
-"node_modules/" 
-".env" 
-"target/" 
-"__pycache__/" 
+# ===== ANGULAR (frontend) =====
+node_modules/
+dist/
+.angular/
+*.js.map
+
+# ===== SPRING BOOT (backend) =====
+target/
+*.jar
+*.war
+*.class
+.mvn/
+
+# ===== PYTHON IA SERVICE =====
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+env/
+*.egg-info/
+
+# ===== VARIABLES D'ENVIRONNEMENT (JAMAIS sur Git) =====
+.env
+.env.local
+.env.production
+application-secret.properties
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ===== DOCKER =====
+*.log
