@@ -9,17 +9,15 @@ import { CardAnnonce } from './components/card-annonce/card-annonce';
 import { SearchBar } from './components/search-bar/search-bar';
 
 @NgModule({
-  declarations: [
-    Navbar,
-    Footer,
-    CardAnnonce,
-    SearchBar
-  ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Navbar,
+    Footer,
+    CardAnnonce,
+    SearchBar
   ],
   exports: [
     Navbar,
