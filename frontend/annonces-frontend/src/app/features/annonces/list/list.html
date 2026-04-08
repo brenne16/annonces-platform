@@ -1,1 +1,36 @@
-<p>list works!</p>
+<div class="list-container">
+
+  <div class="list-header">
+    <h1>Toutes les annonces</h1>
+    <span class="count">{{ annoncesFiltrees.length }} annonces</span>
+  </div>
+
+  <div class="categories">
+    @for (cat of categories; track cat) {
+      <button
+        class="cat-btn"
+        [class.active]="categorieSelectionnee === cat"
+        (click)="filtrerParCategorie(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <div class="annonces-grid">
+    @for (annonce of annoncesFiltrees; track annonce.id) {
+      <div class="annonce-card">
+        <img [src]="annonce.image" [alt]="annonce.titre" />
+        <div class="card-body">
+          <span class="categorie">{{ annonce.categorie }}</span>
+          <h3>{{ annonce.titre }}</h3>
+          <p>{{ annonce.description }}</p>
+          <div class="card-footer">
+            <span class="prix">{{ annonce.prix }} DH</span>
+            <span class="localisation">{{ annonce.localisation }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+</div>
