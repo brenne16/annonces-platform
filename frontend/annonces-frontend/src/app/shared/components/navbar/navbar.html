@@ -1,1 +1,16 @@
-<p>navbar works!</p>
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/annonces">AnnoncesApp</a>
+  </div>
+
+  <div class="navbar-links">
+    <a routerLink="/annonces" routerLinkActive="active">Annonces</a>
+    <a routerLink="/recherche" routerLinkActive="active">Recherche</a>
+    <a routerLink="/recommandations" routerLinkActive="active">Recommandations</a>
+  </div>
+
+  <div class="navbar-actions">
+    <a routerLink="/auth/login" class="btn-login">Connexion</a>
+    <a routerLink="/annonces/create" class="btn-publish">Publier</a>
+  </div>
+</nav>

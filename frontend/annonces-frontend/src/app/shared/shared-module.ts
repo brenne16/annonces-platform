@@ -8,6 +8,7 @@ import { Footer } from './components/footer/footer';
 import { CardAnnonce } from './components/card-annonce/card-annonce';
 import { SearchBar } from './components/search-bar/search-bar';
 
+
 @NgModule({
   imports: [
     CommonModule,
