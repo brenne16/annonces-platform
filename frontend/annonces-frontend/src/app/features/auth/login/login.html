@@ -1,1 +1,61 @@
-<p>login works!</p>
+<div class="auth-container">
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <h1>Connexion</h1>
+      <p>Accédez à votre compte AnnoncesApp</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="votre@email.com"
+          [class.error]="email?.invalid && email?.touched"/>
+        @if (email?.invalid && email?.touched) {
+          <span class="error-msg">
+            @if (email?.errors?.['required']) { L'email est obligatoire }
+            @if (email?.errors?.['email']) { Format d'email invalide }
+          </span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="motDePasse">Mot de passe</label>
+        <input
+          id="motDePasse"
+          type="password"
+          formControlName="motDePasse"
+          placeholder="Minimum 6 caractères"
+          [class.error]="motDePasse?.invalid && motDePasse?.touched"/>
+        @if (motDePasse?.invalid && motDePasse?.touched) {
+          <span class="error-msg">
+            @if (motDePasse?.errors?.['required']) { Le mot de passe est obligatoire }
+            @if (motDePasse?.errors?.['minlength']) { Minimum 6 caractères requis }
+          </span>
+        }
+      </div>
+
+      @if (errorMessage) {
+        <div class="alert-error">{{ errorMessage }}</div>
+      }
+
+      <button type="submit" class="btn-submit" [disabled]="isLoading">
+        @if (isLoading) { Connexion en cours... }
+        @else { Se connecter }
+      </button>
+
+    </form>
+
+    <div class="auth-footer">
+      <p>Pas encore de compte ?
+        <a routerLink="/auth/register">Créer un compte</a>
+      </p>
+    </div>
+
+  </div>
+</div>
