@@ -1,0 +1,154 @@
+.detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.btn-retour {
+  display: inline-block;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+
+  &:hover { color: #3b82f6; }
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.detail-info {
+  .categorie {
+    font-size: 0.8rem;
+    color: #3b82f6;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0.5rem 0;
+  }
+
+  .prix {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0.5rem 0;
+  }
+
+  .localisation {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: #6b7280;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.vendeur-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 80px;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+
+  .vendeur-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    span {
+      font-weight: 500;
+      color: #111827;
+    }
+  }
+
+  .btn-contacter {
+    display: block;
+    width: 100%;
+    padding: 0.85rem;
+    background: #3b82f6;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+    box-sizing: border-box;
+
+    &:hover { background: #2563eb; }
+  }
+
+  .telephone {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+  }
+}
+
+.not-found {
+  text-align: center;
+  padding: 4rem;
+  color: #6b7280;
+
+  a {
+    color: #3b82f6;
+    text-decoration: none;
+    margin-top: 1rem;
+    display: block;
+  }
+}

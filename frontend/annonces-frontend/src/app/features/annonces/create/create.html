@@ -1,1 +1,119 @@
-<p>create works!</p>
+<div class="create-container">
+
+  <div class="create-header">
+    <a routerLink="/annonces" class="btn-retour">← Retour</a>
+    <h1>Publier une annonce</h1>
+  </div>
+
+  <form [formGroup]="annonceForm" (ngSubmit)="onSubmit()" class="create-form">
+
+    <div class="form-section">
+      <h2>Informations principales</h2>
+
+      <div class="form-group">
+        <label for="titre">Titre de l'annonce</label>
+        <input
+          id="titre"
+          type="text"
+          formControlName="titre"
+          placeholder="Ex: iPhone 14 Pro - Excellent état"
+          [class.error]="titre?.invalid && titre?.touched"/>
+        @if (titre?.invalid && titre?.touched) {
+          <span class="error-msg">
+            @if (titre?.errors?.['required']) { Le titre est obligatoire }
+            @if (titre?.errors?.['minlength']) { Minimum 5 caractères }
+          </span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          placeholder="Décrivez votre article en détail..."
+          rows="5"
+          [class.error]="description?.invalid && description?.touched">
+        </textarea>
+        @if (description?.invalid && description?.touched) {
+          <span class="error-msg">
+            @if (description?.errors?.['required']) { La description est obligatoire }
+            @if (description?.errors?.['minlength']) { Minimum 20 caractères }
+          </span>
+        }
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="prix">Prix (DH)</label>
+          <input
+            id="prix"
+            type="number"
+            formControlName="prix"
+            placeholder="0"
+            [class.error]="prix?.invalid && prix?.touched"/>
+          @if (prix?.invalid && prix?.touched) {
+            <span class="error-msg">Prix invalide</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="categorie">Catégorie</label>
+          <select
+            id="categorie"
+            formControlName="categorie"
+            [class.error]="categorie?.invalid && categorie?.touched">
+            <option value="">Choisir une catégorie</option>
+            @for (cat of categories; track cat) {
+              <option [value]="cat">{{ cat }}</option>
+            }
+          </select>
+          @if (categorie?.invalid && categorie?.touched) {
+            <span class="error-msg">La catégorie est obligatoire</span>
+          }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="localisation">Localisation</label>
+        <input
+          id="localisation"
+          type="text"
+          formControlName="localisation"
+          placeholder="Ex: Casablanca"
+          [class.error]="localisation?.invalid && localisation?.touched"/>
+        @if (localisation?.invalid && localisation?.touched) {
+          <span class="error-msg">La localisation est obligatoire</span>
+        }
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Photo</h2>
+      <div class="image-upload">
+        @if (imagePreview) {
+          <img [src]="imagePreview" alt="Aperçu" class="image-preview"/>
+        } @else {
+          <div class="upload-placeholder">
+            <span>Cliquez pour ajouter une photo</span>
+          </div>
+        }
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onImageChange($event)"
+          class="file-input"/>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <a routerLink="/annonces" class="btn-annuler">Annuler</a>
+      <button type="submit" class="btn-publier" [disabled]="isLoading">
+        @if (isLoading) { Publication en cours... }
+        @else { Publier l'annonce }
+      </button>
+    </div>
+
+  </form>
+
+</div>

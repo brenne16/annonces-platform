@@ -3,6 +3,7 @@
   <div class="list-header">
     <h1>Toutes les annonces</h1>
     <span class="count">{{ annoncesFiltrees.length }} annonces</span>
+    <a routerLink="/annonces/create" class="btn-publier">+ Publier une annonce</a>
   </div>
 
   <div class="categories">
@@ -18,7 +19,7 @@
 
   <div class="annonces-grid">
     @for (annonce of annoncesFiltrees; track annonce.id) {
-      <div class="annonce-card">
+      <a [routerLink]="['/annonces', annonce.id]" class="annonce-card">
         <img [src]="annonce.image" [alt]="annonce.titre" />
         <div class="card-body">
           <span class="categorie">{{ annonce.categorie }}</span>
@@ -29,7 +30,7 @@
             <span class="localisation">{{ annonce.localisation }}</span>
           </div>
         </div>
-      </div>
+      </a>
     }
   </div>
 

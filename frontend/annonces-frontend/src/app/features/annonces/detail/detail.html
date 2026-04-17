@@ -1,1 +1,48 @@
-<p>detail works!</p>
+<div class="detail-container">
+
+  @if (annonce) {
+
+    <a routerLink="/annonces" class="btn-retour">← Retour aux annonces</a>
+
+    <div class="detail-layout">
+
+      <div class="detail-left">
+        <img [src]="annonce.image" [alt]="annonce.titre" class="detail-image"/>
+
+        <div class="detail-info">
+          <span class="categorie">{{ annonce.categorie }}</span>
+          <h1>{{ annonce.titre }}</h1>
+          <p class="prix">{{ annonce.prix }} DH</p>
+          <p class="localisation">{{ annonce.localisation }} · Publié le {{ annonce.date }}</p>
+
+          <div class="description">
+            <h3>Description</h3>
+            <p>{{ annonce.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-right">
+        <div class="vendeur-card">
+          <h3>Vendeur</h3>
+          <div class="vendeur-info">
+            <div class="avatar">{{ annonce.vendeur[0] }}</div>
+            <span>{{ annonce.vendeur }}</span>
+          </div>
+          <a [href]="'tel:' + annonce.telephone" class="btn-contacter">
+            Contacter le vendeur
+          </a>
+          <p class="telephone">{{ annonce.telephone }}</p>
+        </div>
+      </div>
+
+    </div>
+
+  } @else {
+    <div class="not-found">
+      <p>Annonce introuvable.</p>
+      <a routerLink="/annonces">Retour aux annonces</a>
+    </div>
+  }
+
+</div>
