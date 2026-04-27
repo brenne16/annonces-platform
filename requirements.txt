@@ -1,0 +1,1 @@
+fastapi==0.111.0`nuvicorn[standard]==0.29.0`nsqlalchemy==2.0.30`nalembic==1.13.1`npsycopg2-binary==2.9.9`npydantic==2.7.1`npydantic-settings==2.2.1`npython-jose[cryptography]==3.3.0`npasslib[bcrypt]==1.7.4`npython-multipart==0.0.9`naiofiles==23.2.1`nhttpx==0.27.0`nanthropic`npython-dotenv==1.0.1`nemail-validator==2.1.1`nslowapi==0.1.9`nPillow==12.0.0
